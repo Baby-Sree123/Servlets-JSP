@@ -1,0 +1,28 @@
+package com.wipro;
+
+public class Concentrator {
+	
+	public static String concentratorString(String[] input) {
+		
+		StringBuilder sb = new StringBuilder();
+		for(String str : input) {
+			sb.append(str);
+		}
+		
+		
+		
+		
+		
+		
+		return sb.toString();
+		
+	}
+
+	public static void main(String[] args) {
+		String[] input = {"Hello " , "World"};
+		String result = concentratorString(input);
+		System.out.println(input);
+		
+	}
+
+}

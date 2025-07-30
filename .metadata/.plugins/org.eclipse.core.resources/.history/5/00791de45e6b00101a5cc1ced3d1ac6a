@@ -1,0 +1,14 @@
+package com.Wipro;
+
+public class TestJunit<messageUtil> {
+	
+	String message = "Hello World";
+	
+	MessageUtil messageUtil = new MessageUtil();
+	
+	@Test
+	public void testPrintMesage() {
+		assertEqual(message, messageUtil.printMesage());
+	}
+
+}

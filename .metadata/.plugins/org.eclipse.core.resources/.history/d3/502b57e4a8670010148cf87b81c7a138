@@ -1,0 +1,67 @@
+package com.wipro;
+
+abstract class Plane { 
+	abstract void takeoff();
+	abstract void fly();
+	
+}
+
+
+class CargoPlane extends Plane {
+
+	@Override
+	void takeoff() {
+	      System.out.println("CargoPlane is takingoff");		
+	}
+
+	@Override
+	void fly() {
+		System.out.println("CargoPlane is flying at lower heights ");
+		
+	}
+	
+}
+ 
+class PassengerPlane extends Plane {
+
+	@Override
+	void takeoff() {
+		System.out.println("PassengerPlane is takingoff");		
+		
+		
+	}
+
+	@Override
+	void fly() {
+		System.out.println("PassengerPlane  is flying at medium heights");		
+		
+	}
+	
+}
+
+class Airport {
+	static void permit(Plane ref) {
+		ref.takeoff();
+		ref.fly();
+	}
+}
+
+public class Pla {
+	public static void main(String[] args) {
+		CargoPlane cp = new CargoPlane();
+		PassengerPlane pp = new PassengerPlane();
+		
+		Airport.permit(cp);
+		Airport.permit(pp);
+	}
+}
+
+
+
+
+
+
+
+
+
+

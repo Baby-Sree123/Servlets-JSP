@@ -1,0 +1,166 @@
+package com.demo.daoimpl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.demo.DAO.DepartmentDAO;
+import com.demo.model.Department;
+import com.demo.util.DbUtil;
+
+public class DepartmentDAOImpl implements DepartmentDAO {
+
+	@Override
+	public void adddepartment(Department department) {
+		Connection connection = DbUtil.getConnection();
+
+		String INSERT_DEPARTMENT_QUERY ="INSERT into 'Department' ('deptId','deptName','location',managerName','noOfEmployees') values (?,?,?,?,?)";
+
+		PreparedStatement prepareStatement = null;
+		try {
+			 prepareStatement = connection.prepareStatement(INSERT_DEPARTMENT_QUERY);
+			
+			prepareStatement.setInt(1,department.getDeptId());
+			prepareStatement.setString(2,department.getDeptName());
+			prepareStatement.setString(3,department.getDeptName());
+			prepareStatement.setString(4,department.getManagerName());
+			prepareStatement.setInt(5,department.getNoOfEmployees());
+			
+			int res = prepareStatement.executeUpdate();
+			
+		} 
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				prepareStatement.close();
+			} catch (SQLException e) {
+				
+				e.printStackTrace();
+			}
+		}
+	}
+
+	@Override
+	public Department getDepartmentById(int deptId) {
+		String GET_DEPARTMENT_QUERY = "SELECT * FROM 'department' WHERE 'deptId'= ?";
+
+		PreparedStatement prepareStatement = null;
+		Department department = null;
+		try {
+			Connection connection = DbUtil.getConnection();
+			 prepareStatement = connection.prepareStatement(GET_DEPARTMENT_QUERY);
+			
+			prepareStatement.setInt(1,deptId);
+			
+			ResultSet res = prepareStatement.executeQuery();
+			
+			String deptName = res.getString("deptName");
+			String location = res.getString("location");
+			String managerName = res.getString("managerName");
+			int noOfEmployees = res.getInt("noOfEmployees");
+			
+			department = new Department(deptId,deptName,location,managerName,noOfEmployees);
+			
+			
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				prepareStatement.close();
+			} catch (SQLException e) {
+				
+				e.printStackTrace();
+			}
+		}
+		return department;
+	}
+
+	@Override
+	public List<Department> getAllDepartments() {
+		
+		String GET_ALL_DEPARTMENTS = "SELET * FROM DEPARTMENT";
+		ArrayList<Department> departmentsList = new ArrayList<Department>();
+		try {
+			Connection connection = DbUtil.getConnection();
+			Statement statement = connection.createStatement();
+			ResultSet res = statement.executeQuery(GET_ALL_DEPARTMENTS);
+			
+			while(res.next()) {
+				int deptId = res.getInt("deptId");
+				String deptName = res.getString("deptName");
+				String location = res.getString("location");
+				String managerName = res.getString("managerName");
+				int noOfEmployees = res.getInt("noOfEmployees");
+				
+				Department department =new Department(deptId,deptName,location,managerName,noOfEmployees);
+				departmentsList.add(department);
+				
+			}
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return departmentsList;
+		
+		
+	}
+
+	@Override
+	public int updateDepartmentById(int deptId, String newName, String newLocation) {
+		
+		String UPDATE_DEPARTMENT_QUERY = "UPDATE 'department' SET 'deptName' = ? 'location' = ? ";
+		int rowsAffected = 0;
+		
+		Connection connection = DbUtil.getConnection();
+		try
+		{
+			PreparedStatement prepareStatement = connection.prepareStatement(UPDATE_DEPARTMENT_QUERY);
+			prepareStatement.setString(1,newName);
+			prepareStatement.setString(2, newLocation);
+			prepareStatement.setInt(3, deptId);
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return rowsAffected;
+	}
+
+	@Override
+	public void deleteDepartment(int deptId) {
+		
+		String DELETE_DEPARTMENT_QUERY = "DELETE FROM 'department' WHERE 'deptId' = ?";
+		
+		
+		try
+		{
+			Connection connection = DbUtil.getConnection();
+			PreparedStatement prepareStatement = connection.prepareStatement(DELETE_DEPARTMENT_QUERY);
+			
+			prepareStatement.setInt(1, deptId);
+			
+			prepareStatement.executeUpdate();
+			
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+		
+	
+	
+
+}

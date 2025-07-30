@@ -1,0 +1,75 @@
+package com.demo.daoimpl;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.demo.DAO.DepartmentDAO;
+import com.demo.model.Department;
+import com.demo.util.DbUtil;
+
+public class DepartmentDAOImpl implements DepartmentDAO {
+
+	@Override
+	public void adddepartment(Department department) {
+		
+		Connection connection = DbUtil.getConnection();
+		
+		String INSERT_DEPARTMENT_QUERY ="INSERT into 'Department' ('deptId','deptName','location',managerName','noOfEmployees') values (?,?,?,?,?)";
+		
+		PreparedStatement prepareStatement = null;
+		try {
+			 prepareStatement = connection.prepareStatement(INSERT_DEPARTMENT_QUERY);
+			
+			prepareStatement.setInt(1,department.getDeptId());
+			prepareStatement.setString(2,department.getDeptName());
+			prepareStatement.setString(3,department.getDeptName());
+			prepareStatement.setString(4,department.getManagerName());
+			prepareStatement.setInt(5,department.getNoOfEmployees());
+			
+			int res = prepareStatement.executeUpdate();
+			
+		} 
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				prepareStatement.close();
+			} catch (SQLException e) {
+				
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+	@Override
+	public Department getDepartmentById(int deptId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Department> getAllDepartment() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int updateDepartmentById(int deptId, String newName, String newLocation) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void deleteDepartment(int deptId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+}

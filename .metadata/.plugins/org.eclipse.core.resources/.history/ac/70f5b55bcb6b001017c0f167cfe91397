@@ -1,0 +1,32 @@
+package com.exp;
+
+import java.util.Scanner;
+
+public class EX3 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int res = 0;
+		try
+		{
+			System.out.println("Enter a number: ");
+			int a = sc.nextInt();
+			System.out.println("Enter a second number");
+			int b = sc.nextInt();
+			 res=a/b;
+			int[] arr = new int[2];
+			
+		}
+		catch(ArithmeticException e)
+		{
+			e.printStackTrace();
+		}
+		catch(ArrayIndexOutOfBoundsException e)
+		{
+			e.printStackTrace();
+		}
+		System.out.println(res);
+
+	}
+
+}

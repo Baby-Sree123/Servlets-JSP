@@ -1,0 +1,22 @@
+package com.p;
+
+
+public class Calculator
+{
+	public void add(int x, int y)
+	{
+		
+	}
+}
+
+public class EX2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Calculator cal = new Calculator();
+		cal.add(1,2);
+		int y = cal.mul(2,3);
+		System.out.println(y);
+	}
+
+}

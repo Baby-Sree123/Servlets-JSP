@@ -1,0 +1,70 @@
+package com.wi;
+
+
+
+class Heart {
+	
+	void pump() {                                        
+		System.out.println("Heart is pumping blood...");
+	
+	}
+}
+
+class Human {
+	 private Heart heart;
+	
+	                                                               //Constructor - Composition: Heart is created inside Human
+	 public Human() {
+	     heart = new Heart(); 
+      }
+	
+     void live() {
+     heart.pump(); 
+	     System.out.println("Human is alive!");
+	 }
+	}
+	
+
+
+
+public class Comp {
+
+	public static void main(String[] args) {
+		Human human = new Human();  
+	     human.live();               
+	 }
+	
+
+}
+
+
+////Heart.java
+//class Heart {
+// void pump() {
+//     System.out.println("Heart is pumping blood...");
+// }
+//}
+//
+////Human.java
+//class Human {
+// private Heart heart;
+//
+// // Constructor - Composition: Heart is created inside Human
+// public Human() {
+//     heart = new Heart(); // tightly bound (Composition)
+// }
+//
+// void live() {
+//     heart.pump(); // using Heart's method
+//     System.out.println("Human is alive!");
+// }
+//}
+//
+////Main.java
+//public class Main {
+// public static void main(String[] args) {
+//     Human human = new Human();  // Heart is created inside Human
+//     human.live();               // Human uses Heart to live
+// }
+}
+

@@ -1,0 +1,26 @@
+package com.file;
+
+import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+
+public class File1 {
+
+	public static void main(String[] args) {
+		
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("data.txt"));
+			String line;
+			while(line.reader.readline())!= null) {
+				System.out.println("line");
+			}
+		}
+		
+		catch(IOException e) {
+			System.out.println("Not found");
+		}
+		
+	}
+
+}

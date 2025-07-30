@@ -1,0 +1,42 @@
+package com.wipro;
+
+public class Concentrator {
+	
+	public static String concentratorString(String[] strings) {
+		
+		StringBuilder sb = new StringBuilder();
+		for(String str : strings) {
+			sb.append(str);
+		}
+		
+		
+		
+		
+		
+		
+		return sb.toString();
+		
+	}
+
+	public static void main(String[] args) {
+		String[] input = {"Hello " , "World"};
+		String result = concentratorString(input);
+		System.out.println(" result");
+		
+	}
+
+}
+/*public static String concentrateStrings(String[] strings) {
+StringBuilder sb = new StringBuilder();
+for (String str : strings) {
+    sb.append(str);
+}
+return sb.toString();
+}
+
+public static void main(String[] args) {
+String[] input = {"Hello", " ", "World", "!"};
+String result = concentrateStrings(input);
+System.out.println("Concatenated String: " + result);
+}
+}*/

@@ -1,0 +1,47 @@
+package com.Wipro;
+
+public class MessageUtil {
+	
+	private String message;
+	
+	public MessageUtil(String message) {
+		this.message = message;
+	}
+	
+	public String printMessage()
+	{
+          System.out.println(message);
+          return this.message;
+	}
+
+}
+//
+
+
+/*package com.Wipro;
+
+public class TestJunit<messageUtil> {
+	
+	String message = "Hello World";
+	
+	MessageUtil messageUtil = new MessageUtil();
+	
+	@Test
+	public void testPrintMesage() {
+		assertEqual(message, messageUtil.printMesage());
+	}
+
+}
+
+/*
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+package com;
+
+import java.util.Scanner;
+
+public class InputVariables {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		String empName;
+		int age;
+		System.out.println("Enter your age:");
+		empName=sc.next();
+		System.out.println("Enter your age");
+		age=sc.nextInt();
+		System.out.println(empName + " ," + age);
+		
+	}
+
+}

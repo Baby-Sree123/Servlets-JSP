@@ -1,0 +1,42 @@
+package com.wi;
+
+
+
+class Heart {
+	                                                           //Every Human has a heart
+	void pump() {                                        
+		System.out.println("Heart is pumping blood...");      //In this heart class.In the Heart class, the heart works by pumping, right?
+	
+	}
+}
+
+class Human {                                     // in this class by declaring  the Heart object inside Human, 
+	                                              //The Heart cannot exist without the Human,The Human owns the Heart 
+	 private Heart heart;
+	
+	                                                               //Constructor - Composition: Heart is created inside Human
+	 public Human() {
+	     heart = new Heart(); 
+      }
+	
+     void live() {
+     heart.pump(); 
+	     System.out.println("Human is alive!");
+	 }
+	}
+	
+
+
+
+public class Comp {
+
+	public static void main(String[] args) {
+		Human human = new Human();                    // When we create a Human and call live(), 
+		                                             //it tells the Heart to pump, and then prints that the human is alive."
+	     human.live();               
+	 }
+	
+
+}
+
+

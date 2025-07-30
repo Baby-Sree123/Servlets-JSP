@@ -1,0 +1,32 @@
+package com.inh;
+
+class A9 {
+	int x;
+}
+
+class B9 extends A9 {
+	int y;
+}
+
+class C extends A9 {
+	int z;
+}
+
+public class EX3 {
+
+	public static void main(String[] args) {
+		B9 b = new B9();
+		C c = new C();
+		
+		b.x= 12;
+		b.y= 27;
+		
+		c.x = 23;
+		c.z= 23;
+		
+		System.out.println(b.x + " " + b.y + ", "+ c.x + " " + c.z);
+		
+
+	}
+
+}

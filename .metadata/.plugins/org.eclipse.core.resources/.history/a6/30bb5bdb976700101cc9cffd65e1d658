@@ -1,0 +1,25 @@
+package com.wipro;
+
+class Plane {
+	
+	void fly() {
+		System.out.println("Plane is flying");
+	}
+}
+
+class CargoPlane extends Plane {
+	 
+	void fly() {
+		System.out.println("CargoPlane is flying at low height");
+	}
+}
+
+public class Planes {
+	public static void main(String[] args) {
+		CargoPlane cp = new CargoPlane();
+		
+		Plane ref;
+		ref = cp;
+		ref.fly();
+	}
+}

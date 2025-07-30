@@ -1,0 +1,60 @@
+package com.inh;
+
+
+class Employee1 {
+	
+	private int empNo;
+	private String empName;
+	private String location;
+	
+	
+	public Employee1()
+	{
+		
+	}
+	
+	public Employee1(int empNo,String empName,String location) {
+		this.empNo = empNo;
+		this.empName = empName;
+		this.location = location;
+	}
+	
+	public String setempName(String empName){ 
+		return empName;
+		
+	}
+	public int setempNo(int empNo) {
+		return empNo;
+	}
+	
+	public String setlocation(String location)
+	{
+		return location;
+	}
+	public void getempNo()
+	{
+		this.empNo = empNo;
+	}
+	public void getempName()
+	{
+		this.empName = empName;
+	}
+	public void getlocation()
+	{
+		this.location = location;
+	}
+	
+}
+
+public class Employee {
+
+	public static void main(String[] args) {
+		Employee1 e= new Employee1();
+		e.setempName("R");
+		e.setempNo(2);
+		e.setlocation("Hyd");
+		System.out.println(e.getempName());
+
+	}
+
+}
